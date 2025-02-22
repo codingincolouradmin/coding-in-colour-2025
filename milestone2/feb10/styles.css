@@ -1,0 +1,20 @@
+body {
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+* {
+    background-color: antiquewhite;
+}
+
+p {
+    color: rgb(183, 0, 255);
+    font-size: 40px; 
+}
+
+.elementsWithBorder {
+    border:1px solid black;
+}
+
+#thisIsUnique {
+    text-align: center;
+}

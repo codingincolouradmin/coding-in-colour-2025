@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p class="highlight titleParagraph">This is a paragraph with a highlight class</p>
+
+    <h1 id="header">CSS Tag Selectors</h1>
+    <h1 > This is a header with (no headder id)</h1>
+    <p class="highlight">This is a paragraph with a highlight class</p>
+    <p class="highlight">This is a paragraph with a highlight class</p>
+
+    <div class="highlight">Doesn't have highlight class</div>
+  
+    <div class="highlight">This is not a paragraph</div>
+
+    <div>
+        <p class="highlight">this color is green</p>
+        <p>This will also be green</p>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div id="directChildren">
+        <div>
+            direct children content
+            <div>
+                2nd degree nesting 
+            </div>
+        </div>
+    </div>
+
+    <h2>Using `ul > li`</h2>
+    <ul class="direct-child">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <ul>
+            <li>Nested Item 1</li>
+            <li>Nested Item 2</li>
+        </ul>
+    </ul>
+
+    <h2>Using `ul li`</h2>
+    <ul class="descendant">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <ul>
+            <li>Nested Item 1</li>
+            <li>Nested Item 2</li>
+        </ul>
+    </ul>
+
+    <br>
+    <hr>
+    <br>
+
+    <button>Click</button>
+    <div class="link-container">
+        <a href="#header">Click to go to header</a>
+    </div>
+
+    <div class="link">
+        <a href="https://www.w3schools.com/" target="_blank">Click to w3schools</a>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+    <div id="formGroup">
+     
+        <span id="formTitle">Employee Details</span>
+        <form id="MyForm">
+        <label for="firstname" >First Name: </label>
+        <input type="text" name="firstname" id="firstname">
+
+        <label for="lastname" >Last Name: </label>
+        <input type="text" name="lastname" id="lastname">
+
+        <input type="radio" name="lastname" id="lastname">
+        <input type="checkbox" name="lastname" id="lastname">
+
+
+        <button type="submit">Sumbit</button>
+
+    </form>
+
+    </div>
+
+</body>
+</html>

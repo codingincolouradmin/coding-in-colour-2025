@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- External styling -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Internal styling -->
+    <style>
+        html{
+            /* 16px is default */
+            font-size: 20px; 
+        }
+        .aligned{
+            text-align: center;
+            margin: 100px 50px 30px 10px;
+            padding: 2em 2em;
+            font-size: 2rem;
+
+        }
+
+        p {
+            color: chartreuse !important;
+            font-size: 40px; 
+            padding: 20vw;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <!-- only these two has border! -->
+    <p class="elementsWithBorder">test Paragraph</p>
+    <h1 class="elementsWithBorder">h1 title</h1>
+
+    <h2 class="aligned">no border, but aligend</h2>
+    <!-- inline styling -->
+    <p style="color: blue !important;border: 1px solid ;">Paragraph, but no border. Inline styling</p>
+
+    <div id="thisIsUnique">any content selected with ID</div>
+</body>
+</html>
+
+
+<!-- CSS priority -->
+ <!-- 
+    1- !important
+    2- Inline
+    3- Internal
+    4- External
+ -->

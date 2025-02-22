@@ -1,0 +1,136 @@
+:root {
+    --primary-color: rgb(249, 216, 203);
+    --font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+}
+
+#header{
+    font-style: oblique;
+}
+.hightlight{
+    margin: 10px 0;
+}
+
+/* select elements with certain classes or IDs */
+p.highlight {
+    color: red;
+}
+p.titleParagraph {
+    color: black;
+}
+
+h1#header {color: aqua;}
+
+
+/* select nested paragraphs inside div */
+div p {
+    color: green;
+}
+
+
+#directChildren > div {
+    color: blueviolet;
+
+}
+
+#directChildren > div > div {
+    color: black; /* or another desired color */
+   
+}
+
+
+/* Targets only direct children <li> of <ul> */
+.direct-child > li {
+    color: chocolate;
+}
+
+/* Targets all <li> elements inside <ul>, including nested ones */
+.descendant li {
+    color: chocolate;
+}
+
+/* Select the sibling (p) that comes immediatley after (h1) */
+h1 + p{
+    border: 1px solid black;
+}
+
+/* Select all siblings (p) that comes after (h1) */
+h1 ~ p{
+    font-weight: 700;
+}
+
+/* Style buttons */
+button {
+    background-color: green;
+    color:white;
+    border: 1px solid black;
+    padding: 3px 6px;
+
+}
+/* add effect when hovering over the button */
+button:hover {
+    background-color: rgb(1, 104, 1);
+    cursor: pointer;
+}
+button:focus {
+    background-color: rgb(1, 86, 1);
+}
+
+/* add content to the screen, but no elements added to DOM */
+.titleParagraph::before{
+    content: "Note: ";
+    color: red;
+    font-weight: bold;
+}
+
+.titleParagraph::after{
+    content: " (read more)";
+    color: blue;
+}
+
+.titleParagraph::first-letter{
+    font-size: 40px;
+}
+
+
+/* Form CSS Below */
+
+#formTitle{
+ position: relative;
+ top: 25px;
+ left: 5px;
+ padding: 0 5px;
+ background-color: aliceblue;
+}
+
+form#MyForm {
+    background-color: aliceblue;
+    padding: 40px;
+    width: 200px;
+
+    border: 1px solid black;
+    box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
+
+}
+
+#MyForm input {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid rgb(44, 183, 233);
+    background-color: aliceblue;
+}
+
+#MyForm label{
+    background-color: aliceblue;
+
+}
+
+button[type="submit"] {
+    display: block;
+    margin-top: 7px;
+}
