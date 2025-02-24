@@ -1,0 +1,26 @@
+.style {
+    background-color: blueviolet;
+    width: 300px;
+}
+
+.container {
+    margin: 50px auto;
+    width: 50vw;
+    background-color: rgb(235, 217, 167);
+    padding: 20px;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
