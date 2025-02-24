@@ -59,6 +59,7 @@ function addTask() {
 
     taskList.appendChild(li);
     li.appendChild(removeBtn)
+    // less efficient solution below replacing removeTask. This would add a listener to each li, which not ideal.
     // removeBtn.addEventListener("click", () => { li.remove() })
     taskInput.value = ""
 
