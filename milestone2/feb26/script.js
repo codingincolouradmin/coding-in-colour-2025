@@ -61,13 +61,15 @@ confirmPassword.addEventListener("input", () => {
 
 
 form.addEventListener("submit", (event) => {
-    console.log("Hello World!")
-    // if (terms.value == false) {
-    //     error.textContent = "Please agree to the terms!"
-    //     error.style.display = "block"
-    //     return false
-    // } else {
-    //     error.style.display = "none";
-    //     return true
-    // }
+    event.preventDefault();
+    let error = terms.nextElementSibling;
+    console.log(terms.value)
+    if (!terms.checked) {
+        error.textContent = "Please agree to the terms!"
+        error.style.display = "block"
+        return false
+    } else {
+        error.style.display = "none";
+        return true
+    }
 })
