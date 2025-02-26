@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <form action="#" id="form">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required title="please add your name!" pattern="[A-Za-z]+">
+        <span class="error"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required >
+        <span class="error"></span>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required  min="18" max="65">
+        <span class="error"></span>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="6" maxlength="12">
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6" maxlength="12">
+        <span class="error"></span>
+
+        <input type="checkbox" id="terms">
+        <label>I agree to terms and condtions</label>
+        <span class="error"></span>
+
+        <input type="submit" value="submit" id="submit">
+      </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+input,
+label {
+    display: block;
+}
+
+.error {
+    display: none;
+    color: red;
+    font-size: 10px;
+}
