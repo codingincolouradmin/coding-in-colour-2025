@@ -1,0 +1,23 @@
+/** Light Mode **/
+:root {
+  --clr-background: white;
+  --clr-text: black;
+  --clr-border-color: black;
+  --clr-button: black;
+  --default-padding: 5px;
+}
+
+.dark-mode {
+  --clr-background: black;
+  --clr-text: orange;
+  --clr-button: orange;
+  --clr-border-color: orange;
+}
+
+/* :root {
+  --accent-1: hsl(0, 5, 100%);
+}
+
+.halloween {
+  --accent-1: orange;
+} */
