@@ -1,0 +1,66 @@
+@import url('./variables.css');
+
+/** My CSS **/
+body {
+  background-color: var(--clr-background);
+}
+
+.container {
+  margin: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: var(--default-padding);
+  column-gap: var(--default-padding);
+
+}
+
+.text {
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border-color);
+  padding: var(--default-padding);
+  text-align: center;
+}
+
+.interaction-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.button {
+  color: var(--clr-button);
+}
+
+/** CSS RESET **/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+#root, #__next {
+  isolation: isolate;
+}
