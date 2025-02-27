@@ -91,6 +91,9 @@ body {
   justify-content: center;
   gap: 1.25rem
 }
+.faq-dynamic-row img {
+  cursor: pointer;
+}
 .faq-dynamic-row_header {
   display: flex;
   justify-content: space-between;
@@ -104,8 +107,11 @@ body {
   cursor: pointer;
   color: #b02cec;
 }
-.faq-dynamic-row_content {
+.faq-dynamic-row-content_show {
   color: var(--clr-grayishPurple);
+}
+.faq-dynamic-row-content_hidden {
+  display: none;
 }
 
 @media (max-width: 625px) {
