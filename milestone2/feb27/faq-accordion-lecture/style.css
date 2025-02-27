@@ -120,6 +120,11 @@ body {
   .attribution {
     display: none;
   }
+
+  .faq-dynamic-row_header {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }
 
 /** Attribution Styling **/
