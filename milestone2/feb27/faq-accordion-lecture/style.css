@@ -1,0 +1,142 @@
+/** Variable imports **/
+@import url('./variables.css');
+
+/** CSS Reset **/
+/* Source: https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/** My CSS **/
+html {
+  font-size: var(--font-100);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--clr-lightPink);
+}
+
+body {
+  font-family: var(--ff-base);
+  
+  gap: 2rem;
+  margin-top: 10%;
+  background: url('./images/background-pattern-desktop.svg') no-repeat top var(--clr-lightPink);
+}
+
+.container {
+  width: 625px;
+  margin: 0 auto;
+  background-color: var(--clr-white);
+  border-radius: 1rem;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.25rem;
+}
+
+.faq-accordion_header {
+  display: flex;
+  gap: 1rem;
+}
+.faq-accordion_header h1 {
+  font-size: var(--font-300);
+  color: var(--clr-darkPurple);
+}
+.faq-dynamic-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem
+}
+.faq-dynamic-row img {
+  cursor: pointer;
+}
+.faq-dynamic-row_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-dynamic-row_header h3 {
+  font-size: var(--font-110);
+  color: var(--clr-darkPurple);
+}
+.faq-dynamic-row_header h3:hover {
+  cursor: pointer;
+  color: #b02cec;
+}
+.faq-dynamic-row-content_show {
+  color: var(--clr-grayishPurple);
+}
+.faq-dynamic-row-content_hidden {
+  display: none;
+}
+
+@media (max-width: 625px) {
+  body {
+    background: url('./images/background-pattern-mobile.svg') no-repeat top var(--clr-lightPink);
+    margin-top: 20%;
+  }
+  .container {
+    width: var(--layout-mobile);
+  }
+  .attribution {
+    display: none;
+  }
+
+  .faq-dynamic-row_header {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+
+/** Attribution Styling **/
+.attribution { 
+  text-align: center;
+  color: var(--clr-darkPurple);
+}
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}

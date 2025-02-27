@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form Validation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <form id="form">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+        <span class="error"></span>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+        <span class="error"></span>
+
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

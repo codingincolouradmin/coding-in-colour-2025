@@ -1,0 +1,27 @@
+:root {
+  /** Layouts **/
+  --layout-mobile: 375px;
+  --layout-desktop: 1440px;
+
+  /** Colours **/
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-lightPink: hsl(275, 100%, 97%);
+  --clr-grayishPurple: hsl(292, 16%, 49%);
+  --clr-darkPurple: hsl(292, 42%, 14%);
+
+  /** Typography **/
+  --font-100: 15px;
+  --font-110: 1.125rem;
+  --font-125: 1.25rem;
+  --font-150: 1.5rem;
+  --font-175: 1.75rem;
+  --font-200: 2rem;
+  --font-300: 3rem;
+  --font-400: 4rem;
+
+  --fw-regular: 400;
+  --fw-bold: 600;
+  --fw-black: 700;
+
+  --ff-base: "Work Sans", serif;
+}
