@@ -45,6 +45,82 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /** My CSS **/
+html {
+  font-size: var(--font-100);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--clr-lightPink);
+}
+
+body {
+  font-family: var(--ff-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 10%;
+  background: url('./images/background-pattern-desktop.svg') no-repeat top var(--clr-lightPink);
+}
+
+.container {
+  width: 625px;
+  background-color: var(--clr-white);
+  border-radius: 1rem;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.25rem;
+}
+
+.faq-accordion_header {
+  display: flex;
+  gap: 1rem;
+}
+.faq-accordion_header h1 {
+  font-size: var(--font-300);
+  color: var(--clr-darkPurple);
+}
+.faq-dynamic-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem
+}
+.faq-dynamic-row_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-dynamic-row_header h3 {
+  font-size: var(--font-110);
+  color: var(--clr-darkPurple);
+}
+.faq-dynamic-row_header h3:hover {
+  cursor: pointer;
+  color: #b02cec;
+}
+.faq-dynamic-row_content {
+  color: var(--clr-grayishPurple);
+}
+
+@media (max-width: 625px) {
+  body {
+    background: url('./images/background-pattern-mobile.svg') no-repeat top var(--clr-lightPink);
+    margin-top: 20%;
+  }
+  .container {
+    width: var(--layout-mobile);
+  }
+  .attribution {
+    display: none;
+  }
+}
 
 /** Attribution Styling **/
 .attribution { 
