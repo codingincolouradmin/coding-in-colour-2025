@@ -57,9 +57,7 @@ hr {
 
 body {
   font-family: var(--ff-base);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
   gap: 2rem;
   margin-top: 10%;
   background: url('./images/background-pattern-desktop.svg') no-repeat top var(--clr-lightPink);
@@ -67,6 +65,7 @@ body {
 
 .container {
   width: 625px;
+  margin: 0 auto;
   background-color: var(--clr-white);
   border-radius: 1rem;
 }
