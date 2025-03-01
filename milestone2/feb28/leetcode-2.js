@@ -7,7 +7,7 @@ myList.append("a");
 myList.append("b");
 myList.append("c");
 
-console.log(`Before ${myList.print()}`)
+// console.log(`Before ${myList.print()}`)
 
 
 function removeDuplicates(linkedList) {
@@ -35,7 +35,7 @@ function removeDuplicates(linkedList) {
   return linkedList
 }
 
-console.log(`After ${removeDuplicates(myList).print()}`)
+// console.log(`After ${removeDuplicates(myList).print()}`)
 
 
 const middleNode = myList.head.next;
@@ -45,9 +45,9 @@ function deleteMiddleNode(middleNode) {
 }
 
 // TODO
-console.log(`Before removal of middle: ${myList.print()}`)
-deleteMiddleNode(middleNode);
-console.log(`After removal of middle: ${myList.print()}`)
+// console.log(`Before removal of middle: ${myList.print()}`)
+// deleteMiddleNode(middleNode);
+// console.log(`After removal of middle: ${myList.print()}`)
 
 
 
@@ -58,17 +58,35 @@ newList.append("b");
 newList.append("a");
 
 // Stack usage
-let stack = new Array(newList.length);
-stack.push() // Put things in 
-stack.pop() // Take things out
+let stack = new Array();
 
 // TODO
 function checkPalindrome(linkedList) {
-  return false;
+
+  // First iteration fills the stack
+  let curr = linkedList.head
+  // populating our stack
+  while (curr) {
+    stack.push(curr.data);
+    curr = curr.next;
+  }
+
+  // Second iteration empties the stack
+  let curr2 = linkedList.head
+  // empty the stack
+  while (curr2) {
+    const val = stack.pop();
+    console.log(`comparing ${val} and ${curr2.data}`)
+    if (val !== curr2.data) {
+      return false
+    }
+    curr2 = curr2.next;
+  }
+  return true;
 }
 
 if (checkPalindrome(newList)) {
-  console.log('This is not a palindrome')
-} else {
   console.log('This is a palindrome');
+} else {
+  console.log('This is not a palindrome')
 }
