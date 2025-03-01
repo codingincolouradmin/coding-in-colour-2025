@@ -36,3 +36,15 @@ function removeDuplicates(linkedList) {
 }
 
 console.log(`After ${removeDuplicates(myList).print()}`)
+
+
+const middleNode = myList.head.next;
+
+function deleteMiddleNode(middleNode) {
+  // Make modifications
+}
+
+// TODO
+console.log(`Before removal of middle: ${myList.print()}`)
+deleteMiddleNode(middleNode);
+console.log(`After removal of middle: ${myList.print()}`)
