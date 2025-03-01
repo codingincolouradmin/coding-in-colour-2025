@@ -48,3 +48,27 @@ function deleteMiddleNode(middleNode) {
 console.log(`Before removal of middle: ${myList.print()}`)
 deleteMiddleNode(middleNode);
 console.log(`After removal of middle: ${myList.print()}`)
+
+
+
+let newList = new LinkedList(); 
+newList.append("a");              
+newList.append("b");
+newList.append("b");
+newList.append("a");
+
+// Stack usage
+let stack = new Array(newList.length);
+stack.push() // Put things in 
+stack.pop() // Take things out
+
+// TODO
+function checkPalindrome(linkedList) {
+  return false;
+}
+
+if (checkPalindrome(newList)) {
+  console.log('This is not a palindrome')
+} else {
+  console.log('This is a palindrome');
+}
