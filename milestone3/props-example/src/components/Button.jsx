@@ -1,10 +1,11 @@
 /** Styling imports **/
 import styles from './Button.module.css'
 
-const Button = ({ label, className }) => {
+const Button = ({ children }) => {
+  console.log('The child is', children)
   return (
-    <button className={styles[className]}>
-      {label}
+    <button className={styles[children.class]}>
+      {children.label}
     </button>
   )
 }
