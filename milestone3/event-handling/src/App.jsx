@@ -30,16 +30,34 @@ import { useState } from 'react'
 
 import Button from './components/Button';
 
+// const App = () => {
+
+//   // const handleClick = (e, label) => {
+//   //   console.log('event is', e)
+//   //   console.log(`label is ${label}`)
+//   // }
+
+//   const handleDivClick = () => {
+//     console.log('div clicked')
+//   }
+
+//   const handleButtonClick = (e) => {
+//     e.stopPropagation()
+//     console.log('button clicked')
+//   }
+
+//   return (
+//     <div>
+//       <div onClick={handleDivClick} style={{ background: 'blue' }}>
+//         <button onClick={handleButtonClick}> Click </button>
+//       </div>
+//     </div>
+//   )
+// }
+
 const App = () => {
-
-  const handleClick = (e, label) => {
-    console.log('event is', e)
-    console.log(`label is ${label}`)
-  }
-
   return (
     <div>
-      <Button label='Click' handleClick={handleClick} />
     </div>
   )
 }
