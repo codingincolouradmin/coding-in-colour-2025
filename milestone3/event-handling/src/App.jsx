@@ -56,8 +56,21 @@ import Button from './components/Button';
 // }
 
 const App = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(e.target.name.value)
+  }
+
+  const handleChange = (e) => {
+    console.log('typing...', e.target.value)
+  }
+
   return (
     <div>
+      <form onSubmit={handleSubmit}>
+        name: <input id="name" onChange={handleChange} />
+        <button type='submit'>submit</button>
+      </form>
     </div>
   )
 }
