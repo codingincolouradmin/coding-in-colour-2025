@@ -1,7 +1,29 @@
+import { useState } from 'react'
+
 const App = () => {
+  const [ notes, setNotes ] = useState([
+    { id: 1, content: 'Hello my name is Joe'},
+    { id: 2, content: 'I like CSS' },
+    { id: 3, content: 'I prefer JavaScript' }
+  ])
+
+  const printNote = (e, note) => {
+    // I want to print the note here on click
+    console.log('event', e)
+    console.log(`clicked ${note.content}`)
+  }
+
   return (
     <div>
-      <p> Hello </p>
+      <ul>
+        {notes.map(
+          note => 
+          <div key={note.id}>
+            <li> {note.content} </li>
+            <button onClick={(e) => printNote(e, note)}>print</button>
+          </div>
+        )}
+      </ul>
     </div>
   )
 }
