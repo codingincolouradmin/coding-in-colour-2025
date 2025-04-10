@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+const Button = ({ label, onClick }) => {
+  return (
+    <button onClick={onClick}>{label}</button>
+  )
+}
+
 const App = () => {
   const [ feedback, setFeedback ] = useState({
     good: 0,
@@ -7,13 +13,6 @@ const App = () => {
     bad: 0
   })
 
-  /**
-   * How can we refactor the three functions into a single function
-   * that updates the state
-   * Hint: you need to pass some information to tell the function
-   * which button was clicked
-   * Hint: this is related to the key being updated
-   */
   const handleClick = (e) => {
     const key = e.target.innerText
     setFeedback({
@@ -29,7 +28,7 @@ const App = () => {
       <h1> give feedback </h1>
       <div>
         {buttons.map(
-          label => <button key={label} onClick={handleClick}>{label}</button>
+          label => <Button key={label} label={label} onClick={handleClick} />
           )}
       </div>
       <h1> statistics </h1>
