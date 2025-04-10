@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Complex from './Complex'
 
 const Button = ({ label, onClick }) => {
   return (
@@ -37,6 +38,8 @@ const App = () => {
         <p>neutral {feedback.neutral}</p>
         <p>bad {feedback.bad}</p>
       </div>
+      <h1>notification settings</h1>
+      <Complex />
     </div>
   )
 }
