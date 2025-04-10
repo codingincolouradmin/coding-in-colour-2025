@@ -1,0 +1,50 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.App{
+  text-align: center;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header{
+  background-color: brown;
+  color: white;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.main-content{
+  flex:1;
+  padding: 20px;
+  width:100%;
+}
+
+.btn{
+  padding: 10px 20px;
+  font-size: 16;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: blanchedalmond;
+  color: black;
+}
+
+.footer{
+  background-color: beige;
+  padding: 10px;
+  width: 100%;
+}

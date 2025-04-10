@@ -1,0 +1,105 @@
+body{
+  margin:0;
+  padding:0;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.notes-container{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  
+  width: 300px;
+}
+
+.title{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.input-row{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.note-input{
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size:16px;
+  transition: border 0.3s;
+}
+
+.add-button{
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.notes-list{
+  list-style-type: none;
+}
+
+.note-item{
+  background-color: beige;
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: -30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+
+}
+
+.note-text{
+  flex:1;
+  font-size: 16px;
+
+}
+.edit-button{
+  margin-right: 5px;
+}
+
+.edit-button, .delete-button{
+  background-color: brown;
+  color: white;
+  border : none;
+  padding: 10px 10px;
+  border-radius: 10px;
+
+
+}
+.update-button{
+  margin-right: 5px;
+}
+.update-button, .cancel-button{
+  background-color: green;
+  color: white;
+  border : none;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.edit-text{
+  margin-left: -10px;
+  margin-right: 5px;
+  width: 120px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size:16px;
+  transition: border 0.3s;
+}
