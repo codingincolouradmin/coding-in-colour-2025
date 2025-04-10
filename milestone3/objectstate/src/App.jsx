@@ -14,37 +14,23 @@ const App = () => {
    * which button was clicked
    * Hint: this is related to the key being updated
    */
-  const handleClickGood = () => {
-    console.log('clicked good')
+  const handleClick = (e) => {
+    const key = e.target.innerText
     setFeedback({
       ...feedback,
-      good: feedback.good + 1
+      [key]: feedback[key] + 1
     })
   }
 
-  const handleClickNeutral = () => {
-    console.log('clicked neutral')
-    setFeedback({
-      ...feedback,
-      neutral: feedback.neutral + 1
-    })
-  }
-
-  const handleClickBad = () => {
-    console.log('clicked bad')
-    setFeedback({
-      ...feedback,
-      bad: feedback.bad + 1
-    })
-  }
+  const buttons = ['good', 'neutral', 'bad']
 
   return (
     <div>
       <h1> give feedback </h1>
       <div>
-        <button onClick={handleClickGood}>good</button>
-        <button onClick={handleClickNeutral}>neutral</button>
-        <button onClick={handleClickBad}>bad</button>
+        {buttons.map(
+          label => <button key={label} onClick={handleClick}>{label}</button>
+          )}
       </div>
       <h1> statistics </h1>
       <div>
