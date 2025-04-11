@@ -1,0 +1,21 @@
+:root {
+  /** Layouts **/
+  --layout-mobile: 375px;
+  --layout-desktop: 1440px;
+
+  /** Colours **/
+  --clr-paleBlue: hsl(225, 100%, 94%);
+  --clr-brightBlue: hsl(245, 75%, 52%);
+  --clr-veryPaleBlue: hsl(225, 100%, 98%);
+  --clr-desaturatedBlue: hsl(224, 23%, 55%);
+  --clr-darkBlue: hsl(223, 47%, 23%);
+
+  /** Typography **/
+  --font-paragraph: 16px; 
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  --ff-base: "Red Hat Display", sans-serif;
+}

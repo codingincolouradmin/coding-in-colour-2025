@@ -1,0 +1,24 @@
+@import '../../variables.css';
+body{
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../images/pattern-background-desktop.svg');
+    background-repeat: repeat-x;
+    background-color: var(--clr-paleBlue) ;
+}
+
+.order-summary-container{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+   
+    border-radius: 20px;
+}
