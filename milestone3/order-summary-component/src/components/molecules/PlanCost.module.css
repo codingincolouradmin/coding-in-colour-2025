@@ -1,0 +1,10 @@
+.plan-cost-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.plan-cost-text{
+    display: flex;
+    flex-direction: column;
+}

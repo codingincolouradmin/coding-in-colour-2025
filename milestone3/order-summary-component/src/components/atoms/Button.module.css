@@ -1,0 +1,33 @@
+@import "../../variables.css";
+
+.payment-button{
+    height: 55px;
+    border: none;
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    background-color: var(--clr-brightBlue);
+    color: var(--clr-veryPaleBlue);
+    border-radius: 8px;
+    box-shadow: 0px 20px 8px var(--clr-paleBlue);
+}
+
+.payment-button:hover{
+    opacity:0.75;
+    cursor: pointer;
+}
+
+.cancel-button{
+    height: 55px;
+    border: none;
+    font-size: 1rem;
+    font-weight: var(--fw-exrtaBold);
+    background-color: white;
+    color: var(--clr-desaturatedBlue);
+    border-radius: 8px;
+    
+}
+
+.cancel-button:hover{
+    color: var(--clr-darkBlude);
+    cursor: pointer;
+}

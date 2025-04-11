@@ -1,0 +1,13 @@
+@import "../../variables.css";
+
+.change-clickable{
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-brightBlue);
+    text-decoration: underline;
+}
+.change-clickable:hover{
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0.75;;
+}
