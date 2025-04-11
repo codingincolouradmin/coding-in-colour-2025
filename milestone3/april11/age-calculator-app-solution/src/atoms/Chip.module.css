@@ -1,0 +1,43 @@
+/* Variable imports */
+@import '../variables.css';
+
+.input-label {
+  font-size: 1rem;
+  font-family: 'Poppins-Bold';
+  color: var(--clr-smokeyGrey);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.input-label-error {
+  font-size: 1rem;
+  font-family: 'Poppins-Bold';
+  color: var(--clr-lightRed);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.error-label {
+  font-size: 0.80rem;
+  font-family: 'Poppins-Italic';
+  color: var(--clr-lightRed);
+}
+
+.age-label-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  line-height: 1.2;
+}
+
+.age-value {
+  font-size: 6rem;
+  font-family: 'Poppins-ExtraBoldItalic';
+  color: var(--clr-purple);
+}
+
+.age-label {
+  font-size: 6rem;
+  font-family: 'Poppins-ExtraBoldItalic';
+  color: var(--clr-offBlack);
+}

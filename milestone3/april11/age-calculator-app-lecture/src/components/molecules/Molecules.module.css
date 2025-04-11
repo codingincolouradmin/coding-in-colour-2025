@@ -1,0 +1,22 @@
+.age-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.interaction-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.interaction-panel hr {
+    flex: 1;
+    border: 1px solid var(--clr-offWhite)
+}

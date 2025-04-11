@@ -1,0 +1,7 @@
+/* Variable imports */
+@import '../variables.css';
+
+.age-display {
+  display: flex;
+  flex-direction: column;
+}

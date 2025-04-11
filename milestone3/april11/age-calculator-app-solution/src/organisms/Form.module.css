@@ -1,0 +1,8 @@
+/* Variable Imports */
+@import '../variables.css';
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}

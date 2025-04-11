@@ -1,0 +1,8 @@
+/* Variable imports */
+@import '../variables.css';
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

@@ -1,0 +1,13 @@
+/* Variable Imports */
+@import '../variables.css';
+
+.interaction-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.interaction-panel hr {
+  flex: 1;
+  border: 1px solid var(--clr-offWhite)
+}

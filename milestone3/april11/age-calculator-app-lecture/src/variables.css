@@ -1,0 +1,23 @@
+:root {
+  /** Layouts **/
+  --layout-mobile: 375px;
+  --layout-desktop: 1440px;
+
+  /** Colours **/
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-offWhite: hsl(0, 0%, 94%);
+  --clr-lightGrey: hsl(0, 0%, 86%);
+  --clr-smokeyGrey: hsl(0, 1%, 44%);
+  --clr-offBlack: hsl(0, 0%, 8%);
+  --clr-purple: hsl(259, 100%, 65%);
+  --clr-lightRed: hsl(0, 100%, 67%);
+
+  /** Typography **/
+  --font-inputs: 32px; 
+
+  --fw-regular: 400; /** this weight is italic in the design **/
+  --fw-bold: 700;
+  --fw-black: 800; /** this weight is italic in the design **/
+
+  --ff-base: "Poppins", sans-serif;
+}

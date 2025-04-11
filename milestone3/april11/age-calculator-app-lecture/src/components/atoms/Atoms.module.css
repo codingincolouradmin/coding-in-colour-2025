@@ -1,0 +1,91 @@
+/* Variable imports */
+
+
+.button-container img {
+    background-color: var(--clr-purple);
+    padding: 1.25rem;
+    border-radius: 100%;
+}
+
+.button-container img:hover {
+    background-color: var(--clr-offBlack);
+    cursor: pointer;
+}
+
+
+.input-label {
+    font-size: 1rem;
+    font-family: 'Poppins-Bold';
+    color: var(--clr-smokeyGrey);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.input-label-error {
+    font-size: 1rem;
+    font-family: 'Poppins-Bold';
+    color: var(--clr-lightRed);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.error-label {
+    font-size: 0.80rem;
+    font-family: 'Poppins-Italic';
+    color: var(--clr-lightRed);
+}
+
+.age-label-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    line-height: 1.2;
+}
+
+.age-value {
+    font-size: 6rem;
+    font-family: 'Poppins-ExtraBoldItalic';
+    color: var(--clr-purple);
+}
+
+.age-label {
+    font-size: 6rem;
+    font-family: 'Poppins-ExtraBoldItalic';
+    color: var(--clr-offBlack);
+}
+
+.input-field {
+    width: 160px;
+    height: 70px;
+    padding-left: 1rem;
+    font-family: 'Poppins-Bold';
+    font-size: 2rem;
+    border: 1px solid var(--clr-lightGrey);
+    border-radius: 8px;
+}
+
+.input-field:placeholder {
+    color: var(--clr-smokeyGrey);
+}
+
+.input-field:focus {
+    border: 1.5px solid var(--clr-purple);
+    outline: none;
+    cursor: pointer;
+}
+
+.input-field-error {
+    width: 160px;
+    height: 70px;
+    padding-left: 1rem;
+    font-family: 'Poppins-Bold';
+    font-size: 2rem;
+    border: 1px solid var(--clr-lightRed);
+    border-radius: 8px;
+}
+
+.input-field-error:focus {
+    border: 1.5px solid var(--clr-lightRed);
+    outline: none;
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+/* Variable imports */
+@import '../variables.css';
+
+.input-field {
+  width: 160px;
+  height: 70px;
+  padding-left: 1rem;
+  font-family: 'Poppins-Bold';
+  font-size: 2rem;
+  border: 1px solid var(--clr-lightGrey);
+  border-radius: 8px;
+}
+
+.input-field:placeholder {
+  color: var(--clr-smokeyGrey);
+}
+
+.input-field:focus {
+  border: 1.5px solid var(--clr-purple);
+  outline: none;
+  cursor: pointer;
+}
+
+.input-field-error {
+  width: 160px;
+  height: 70px;
+  padding-left: 1rem;
+  font-family: 'Poppins-Bold';
+  font-size: 2rem;
+  border: 1px solid var(--clr-lightRed);
+  border-radius: 8px;
+}
+
+.input-field-error:focus {
+  border: 1.5px solid var(--clr-lightRed);
+  outline: none;
+  cursor: pointer;
+}
