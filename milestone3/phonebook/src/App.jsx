@@ -16,10 +16,17 @@ const App = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault()
     const name = e.target.name.value.trim()
-    // update the phonebook
-    setPersons(persons.concat(name))
-    // update the name
-    setName('')
+    // Check if person exists & issue warning
+    const find = persons.find(person => person === name)
+    if (find) {
+      // Alert case
+      window.alert(`${find} is already added to the phonebook`)
+    } else {
+      // add to phonebook
+      setPersons(persons.concat(name))
+      setName('')
+    }
+    
   }
 
   return (
