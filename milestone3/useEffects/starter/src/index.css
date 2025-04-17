@@ -46,6 +46,10 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+body {
+  margin: 2rem;
+}
+
 /*
   10. Create a root stacking context
 */
