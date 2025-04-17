@@ -33,6 +33,7 @@ const App = () => {
      * A case where it may matter, we have a timeout in the useEffect
      * that depends on some value and when that value changes 
      * we need to clear the timeout, and make a NEW one
+     * 
      */
     return () => {
       console.log("I am being cleaned up")

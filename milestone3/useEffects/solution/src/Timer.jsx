@@ -19,6 +19,13 @@ function Timer() {
     }
 
     // Cleanup function runs when component unmounts OR before re-running effect
+    /**
+     * React's way of asking, is there anything to clean-up
+     * before I re-run this effect
+     * Interval is that its a function that doesn't stop running until told to
+     * If you restart one without cleanup, you'll accidentally start more than one
+     * Try removing that return and see what happens!
+     */
     return () => {
       console.log('clearing interval')
       clearInterval(interval)
