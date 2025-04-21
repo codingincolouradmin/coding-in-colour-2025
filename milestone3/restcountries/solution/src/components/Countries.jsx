@@ -1,10 +1,25 @@
 // React imports 
 import { useState, useEffect } from 'react'
 // Module imports 
-// Weather services
+import weatherServices from '../services/weather'
 
 const Country = ({ country, defaultVisibility }) => {
   const [ visibility, setVisibility ] = useState(defaultVisibility)
+  const [ weather, setWeather ] = useState(null)
+
+  useEffect(() => {
+    if (visibility) {
+      console.log('api request made...')
+      const latlng = country.latlng
+      weatherServices
+        .getWeatherData(latlng[0], latlng[1])
+        .then(weather => {
+          setWeather(weather)
+        })
+    }
+  }, [visibility])
+
+  console.log(weather)
 
   const toggleVisibility = () => {
     setVisibility(!visibility)
@@ -43,6 +58,14 @@ const Country = ({ country, defaultVisibility }) => {
         <h2>Languages</h2>
         {renderLanguages()}
         {renderFlag()}
+        {weather && 
+        <div>
+          <h2>Weather in {country.capital}</h2>
+          <div>Temperature {weather.temperature} Celsius</div>
+          <img src={weather.icon} alt={weather.description} />
+          <div>Wind {weather.wind} m/s</div>
+        </div>
+        }
         <button onClick={toggleVisibility}>Hide</button>
       </div>
     )
