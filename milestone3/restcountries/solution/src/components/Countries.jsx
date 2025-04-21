@@ -18,7 +18,17 @@ const Countries = ({ countries, filter })  => {
     country.name.toLowerCase().includes(filter.toLowerCase())
   )
 
-  
+  // Determine count
+  const count = filterCountries.length
+
+  // Handle render cases 
+  if (count > 10) return <div>Too many matches, please specify another filter</div>
+  if (count > 1) return filterCountries.map(
+    country => <div key={country.name}>{country.name}</div>
+  )
+  if (count == 1) return <div>MATCH</div>
+
+  return <div>No matches found</div>
 }
 
 export default Countries;
