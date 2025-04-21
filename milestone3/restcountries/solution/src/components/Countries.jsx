@@ -3,6 +3,44 @@ import { useState, useEffect } from 'react'
 // Module imports 
 // Weather services
 
+const Country = ({ country }) => {
+
+  // Render Languages 
+  const renderLanguages = () => {
+    if (Array.isArray(country.languages) && country.languages.length > 0) {
+      return (
+        <ul>
+          {country.languages.map(language => <li key={language}>{language}</li>)}
+        </ul>
+      )
+    } else {
+      return <div>No known languages</div>
+    }
+  }
+
+  // Render Flag
+  const renderFlag = () => {
+    if (country?.flag?.png) {
+      return <img src={country.flag.png} alt={country.flag.alt || "No description for country flag found"} />
+    } else {
+      return <div>No known flags</div>
+    }
+  }
+
+
+  return (
+    <div>
+      <h1>{country.name}</h1>
+      <div>
+        <div>Capital {country.capital}</div>
+        <div>Area {country.area}</div>
+      </div>
+      <h2>Languages</h2>
+      {renderLanguages()}
+      {renderFlag()}
+    </div>
+  )
+}
 
 const Countries = ({ countries, filter })  => {
   // Conditional rendering
@@ -26,7 +64,7 @@ const Countries = ({ countries, filter })  => {
   if (count > 1) return filterCountries.map(
     country => <div key={country.name}>{country.name}</div>
   )
-  if (count == 1) return <div>MATCH</div>
+  if (count == 1) return <Country country={filterCountries[0]}/>
 
   return <div>No matches found</div>
 }
