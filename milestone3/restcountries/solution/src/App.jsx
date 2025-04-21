@@ -5,6 +5,7 @@ import countryServices from './services/countries'
 import countries from './services/countries'
 
 const App = () => {
+  const [ search, setSearch ] = useState('')
 
   // API request and countries update
   useEffect(() => {
@@ -13,9 +14,15 @@ const App = () => {
       .then(countries => console.log(countries))
   }, [])
 
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+
   return (
     <div>
-      <p> Hello </p>
+      <div>
+        find countries <input value={search} onChange={handleSearchChange} />
+      </div>
     </div>
   )
 }
