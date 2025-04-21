@@ -3,7 +3,12 @@ import { useState, useEffect } from 'react'
 // Module imports 
 // Weather services
 
-const Country = ({ country }) => {
+const Country = ({ country, defaultVisibility }) => {
+  const [ visibility, setVisibility ] = useState(defaultVisibility)
+
+  const toggleVisibility = () => {
+    setVisibility(!visibility)
+  }
 
   // Render Languages 
   const renderLanguages = () => {
@@ -27,19 +32,28 @@ const Country = ({ country }) => {
     }
   }
 
-
-  return (
-    <div>
-      <h1>{country.name}</h1>
+  if (visibility) {
+    return (
       <div>
-        <div>Capital {country.capital}</div>
-        <div>Area {country.area}</div>
+        <h1>{country.name}</h1>
+        <div>
+          <div>Capital {country.capital}</div>
+          <div>Area {country.area}</div>
+        </div>
+        <h2>Languages</h2>
+        {renderLanguages()}
+        {renderFlag()}
+        <button onClick={toggleVisibility}>Hide</button>
       </div>
-      <h2>Languages</h2>
-      {renderLanguages()}
-      {renderFlag()}
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div>
+        {country.name}
+        <button onClick={toggleVisibility}>Show</button>
+      </div>
+    )
+  }
 }
 
 const Countries = ({ countries, filter })  => {
@@ -62,9 +76,9 @@ const Countries = ({ countries, filter })  => {
   // Handle render cases 
   if (count > 10) return <div>Too many matches, please specify another filter</div>
   if (count > 1) return filterCountries.map(
-    country => <div key={country.name}>{country.name}</div>
+    country => <Country key={country.name || ""} country={country} defaultVisibility={false}/>
   )
-  if (count == 1) return <Country country={filterCountries[0]}/>
+  if (count == 1) return <Country country={filterCountries[0]} defaultVisibility={true}/>
 
   return <div>No matches found</div>
 }
