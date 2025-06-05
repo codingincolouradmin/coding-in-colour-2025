@@ -25,8 +25,10 @@ app.use(morgan(':method :url :status :res[content-length] :date[iso] - :response
  * - TODO: Products
  */
 const baseRoutes = require('./routes/base')
+const productRoutes = require('./routes/products')
 
 app.use('/api/', baseRoutes)
+app.use('/api/products/', productRoutes)
 
 /**
  * Error Handling middleware
