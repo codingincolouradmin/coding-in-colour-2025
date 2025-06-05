@@ -8,6 +8,25 @@ const logger = (req, res, next) => {
   next() // We pass control onwards, and since this logger comes first, the request then ideally gets caught at the appropriate endpoint
 }
 
+const errorLogger = (error, req, res, next) => {
+  const currentTime = new Date();
+  date.format(currentTime, "YYYY/MM/DD HH:mm:ss")
+  console.log(`Error occured at ${currentTime}`)
+  next(error)
+}
+
+const errorResponse = (error, req, res) => {
+  res.status(error.status).send(error.message)
+  // We simply return a response
+}
+
+const unknownEndpoint = (req, res, next) => {
+  res.status(404).send("Unknown endpoint")
+}
+
 module.exports = {
-  logger
+  logger,
+  errorLogger,
+  errorResponse,
+  unknownEndpoint
 }

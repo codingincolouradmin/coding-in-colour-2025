@@ -15,6 +15,7 @@
     "date-and-time": "^3.6.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "express-validator": "^7.2.1"
+    "express-validator": "^7.2.1",
+    "morgan": "^1.10.0"
   }
 }
