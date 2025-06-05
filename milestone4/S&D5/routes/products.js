@@ -40,4 +40,33 @@ productsRouter.get('/:id', (req, res, next) => {
   }
 })
 
+/**
+ * @description Updates a single resource by id identifier
+ * @route PUT /api/products/{id}
+ * @param {Number} req.body.price - Price of item
+ * @returns {object} 201 - Updated Product object
+ * @returns {Error} 404 - Product not found
+ */
+productsRouter.put('/:id', (req, res, next) => {
+  try {
+    // TODO - Hint: make sure you grab the important information that you need, and update the Product appropriately (the price)
+  } catch (error) {
+    next(error)
+  }
+})
+
+/**
+ * @description Deletes a single product by id identifier
+ * @route DELETE /api/products/{id}
+ * @param {string} id.path.required - The product's id
+ * @returns {} 204 - Request performed
+ */
+productsRouter.delete('/:id', (req, res, next) => {
+  try {
+    // TODO
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = productsRouter
