@@ -1,4 +1,6 @@
 const productsRouter = require('express').Router()
+// data validator
+const { body, validationResult } = require('express-validator')
 
 // In-memory product storage, lacks persistence
 let products = [
@@ -39,6 +41,53 @@ productsRouter.get('/:id', (req, res, next) => {
     next(error)
   }
 })
+
+/**
+ * @description Creates a new product according to data passed
+ * @route POST /api/products
+ * @param {string} req.body.name - Name of Product
+ * @param {Number} req.body.price - Price of Product
+ * @returns {object} 201 - Created Product object
+ */
+productsRouter.post('/', (req, res, next) => {
+  try {
+    const { name, price } = req.body
+
+    // Conditional checks on name, price
+    if (!price || price < 0) {
+      return res.status(400).send({ error: "invalid price" })
+    }
+
+    // TODO: Not using a validator, custom checks
+  } catch (error) {
+    next(error)
+  }
+})
+// productsRouter.post('/',
+//   [
+//     body('name').isString().isLength({ min: 3 }).withMessage('Name must be at least 3 characters long'),
+//     body('price').isNumeric({ gt: 0 }).withMessage('Price must be a positive number')
+//   ],
+//   (req, res, next) => {
+//   try {
+//     const errors = validationResult(req)
+//     if (!errors.isEmpty()) {
+//       console.log(errors)
+//       return res.status(400).json({ error: JSON.stringify(errors.array()) })
+//     }
+
+//     const newProduct = {
+//       id: Math.floor(Math.random() * 10000),
+//       name: req.body.name,
+//       price: req.body.price
+//     }
+
+//     products.push(newProduct)
+//     res.status(201).send(newProduct)
+//   } catch (error) {
+//     next(error)
+//   }
+// })
 
 /**
  * @description Updates a single resource by id identifier
