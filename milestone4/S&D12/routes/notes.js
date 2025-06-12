@@ -1,33 +1,15 @@
 const notesRouter = require('express').Router()
-
-
-// In-memory notes storage, lacks persistence
-let notes = [
-  {
-    id: 1,
-    content: "HTML is easy",
-    important: true
-  },
-  {
-    id: 2,
-    content: "Browser can execute only JavaScript",
-    important: false
-  },
-  {
-    id: 3,
-    content: "GET and POST are the most important methods of HTTP protocol",
-    important: true
-  }
-]
+const Note = require('../models/note') 
 
 /**
  * @description Returns all note resources
  * @route GET /api/notes/
  * @returns {object} 200 - Notes collection
  */
-notesRouter.get('/', (request, response, next) => {
+notesRouter.get('/', async (request, response, next) => {
   try {
-    response.status(200).send(notes)
+    const notes = await Note.findAll()
+    response.status(200).json(notes)
   } catch (error) {
     next(error)
   }
@@ -40,10 +22,10 @@ notesRouter.get('/', (request, response, next) => {
  * @returns {object} 200 - Note object
  * @returns {Error} 404 - Note not found
  */
-notesRouter.get('/:id', (request, response, next) => {
+notesRouter.get('/:id', async (request, response, next) => {
   try {
-    const id = Number(request.params.id)
-    const note = notes.find(p => p.id == id)
+    const id = request.params.id
+    const note = await Note.findByPk(id)
     if (note) {
       response.status(200).json(note)
     } else {
@@ -62,7 +44,7 @@ notesRouter.get('/:id', (request, response, next) => {
  * @returns {object} 201 - Created Product object
  * @returns {object} 400 - Error if content missing
  */
-notesRouter.post('/', (request, response, next) => {
+notesRouter.post('/', async (request, response, next) => {
   try {
     const { content, important } = request.body
 
@@ -72,12 +54,10 @@ notesRouter.post('/', (request, response, next) => {
     }
 
     // Create the note and add it
-    const newNote = {
+    const newNote = await Note.create({
       content,
-      important: important !== undefined ? important : false,
-      id: Math.floor(Math.random() * 10000)
-    }
-    notes = notes.concat(newNote)
+      important: important !== undefined ? important : false
+    })
     response.status(201).json(newNote)
   } catch (error) {
     next(error)
@@ -94,30 +74,28 @@ notesRouter.post('/', (request, response, next) => {
  * @returns {object} 400 - Error if content missing
  * @returns {Error} 404 - Note not found
  */
-notesRouter.put('/:id', (request, response, next) => {
+notesRouter.put('/:id', async (request, response, next) => {
   try {
-    const id = Number(request.params.id)
+    const id = request.params.id
     const { content, important } = request.body
 
-    // If missing update data
+    // If missing content
     if (content === undefined && important === undefined) {
       return response.status(400).send({ error: 'content mising' })
     }
 
     // If note does not exist
-    const note = notes.find(n => n.id == id) 
+    const note = await Note.findByPk(id)
     if (!note) {
       return response.status(404).send({ error: 'note not found' })
     }
 
     // Perform update
-    notes = notes
-    .map(note => note.id == id 
-      ? { ...note, content: content !== undefined ? content: note.content, important: important !== undefined ? important: note.important } 
-      : note 
-    )
-    const updatedNote = notes.find(n => n.id == id)
-    response.status(200).send(updatedNote)
+    if (content !== undefined) note.content = content
+    if (important !== undefined) note.important = important
+
+    await note.save()
+    response.status(200).json(note)
   } catch (error) {
     next(error)
   }
@@ -130,18 +108,16 @@ notesRouter.put('/:id', (request, response, next) => {
  * @returns {} 204 - Request performed
  * @returns {Error} 404 - Note not found
  */
-notesRouter.delete('/:id', (request, response, next) => {
+notesRouter.delete('/:id', async (request, response, next) => {
   try {
-    const id = Number(request.params.id)
+    const id = request.params.id
 
-    // If note does not exist
-    const note = notes.find(n => n.id == id) 
-    if (!note) {
-      return response.status(404).send({ error: 'note not found' })
+    const deleted = await Note.destroy({ where: { id } })
+
+    // if note not found 
+    if (deleted === 0) {
+      return response.status(404).json({ error: 'note not found' })
     }
-
-    // Perform deletion
-    notes = notes.filter(note => note.id !== id)
     response.status(204).end()
   } catch (error) {
     next(error)

@@ -1,8 +1,28 @@
 const express = require('express') // Express node-server application
 const morgan = require('morgan') // Logger middleware
 const middlewares = require('./utils/middlewares') // Import middlewares
+const config = require('./utils/config')
+const sequelize = require('./db')
+const baseRouter = require('./routes/base')
+const notesRouter = require('./routes/notes')
 
 const app = express();  // Creates the express application
+
+// Connect to PostgreSQL Database
+console.log(`connecting to ${config.DATABASE_URL}`)
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('connected to PostgreSQL')
+    // Syncs models, does not drop tables if they exist
+    return sequelize.sync()
+  })
+  .catch((error) => {
+    console.log('error connecting to PostgreSQL: ', error.message)
+  })
+
+
+
 app.use(express.json()) // Built-in middleware to parse JSON bodies sent as part of requests
 
 /**
@@ -17,15 +37,6 @@ app.use(express.static('public'))
  */
 app.use(morgan(':method :url :status :res[content-length] :date[iso] - :response-time ms'))
 // app.use(middlewares.logger)
-
-/**
- * Routers
- * - Import all our endpoints
- * - Base (baseline)
- * - TODO: Products
- */
-const baseRouter = require('./routes/base')
-const notesRouter = require('./routes/notes')
 
 app.use('/api/', baseRouter)
 app.use('/api/notes/', notesRouter)
