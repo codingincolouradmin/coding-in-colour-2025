@@ -62,13 +62,13 @@ notesRouter.get('/:id', (request, response, next) => {
  * @returns {object} 201 - Created Product object
  * @returns {object} 400 - Error if content missing
  */
-notesRouter.post('/', (req, res, next) => {
+notesRouter.post('/', (request, response, next) => {
   try {
-    const { content, important } = req.body
+    const { content, important } = request.body
 
     // If missing content
     if (content === undefined) {
-      return res.status(400).send({ error: 'content mising' })
+      return response.status(400).send({ error: 'content mising' })
     }
 
     // Create the note and add it
@@ -148,4 +148,4 @@ notesRouter.delete('/:id', (request, response, next) => {
   }
 })
 
-module.exports = productsRouter
+module.exports = notesRouter
