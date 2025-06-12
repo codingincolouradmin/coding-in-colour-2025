@@ -118,7 +118,6 @@ notesRouter.delete('/:id', async (request, response, next) => {
     if (deleted === 0) {
       return response.status(404).json({ error: 'note not found' })
     }
-
     response.status(204).end()
   } catch (error) {
     next(error)

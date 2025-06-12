@@ -22,6 +22,7 @@ sequelize
   })
 
 
+
 app.use(express.json()) // Built-in middleware to parse JSON bodies sent as part of requests
 
 /**
