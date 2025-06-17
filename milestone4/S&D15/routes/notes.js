@@ -1,24 +1,5 @@
 const notesRouter = require('express').Router()
-
-
-// In-memory notes storage, lacks persistence
-let notes = [
-  {
-    id: 1,
-    content: "HTML is easy",
-    important: true
-  },
-  {
-    id: 2,
-    content: "Browser can execute only JavaScript",
-    important: false
-  },
-  {
-    id: 3,
-    content: "GET and POST are the most important methods of HTTP protocol",
-    important: true
-  }
-]
+const Note = require('../models/note')
 
 /**
  * @description Returns all note resources
@@ -27,6 +8,8 @@ let notes = [
  */
 notesRouter.get('/', (request, response, next) => {
   try {
+    const notes = Note.find({})
+    response.status(200).json(notes)
     response.status(200).send(notes)
   } catch (error) {
     next(error)
@@ -34,6 +17,7 @@ notesRouter.get('/', (request, response, next) => {
 })
 
 /**
+ * TODO
  * @description Returns a single note by id identifier
  * @route GET /api/notes/{id}
  * @param {string} id.param.required - The note's id
@@ -62,29 +46,24 @@ notesRouter.get('/:id', (request, response, next) => {
  * @returns {object} 201 - Created Product object
  * @returns {object} 400 - Error if content missing
  */
-notesRouter.post('/', (req, res, next) => {
+notesRouter.post('/', async (request, response, next) => {
   try {
-    const { content, important } = req.body
+    const { content, important } = request.body
 
-    // If missing content
-    if (content === undefined) {
-      return res.status(400).send({ error: 'content mising' })
-    }
-
-    // Create the note and add it
-    const newNote = {
+    const note = new Note({
       content,
-      important: important !== undefined ? important : false,
-      id: Math.floor(Math.random() * 10000)
-    }
-    notes = notes.concat(newNote)
-    response.status(201).json(newNote)
+      important: important || false
+    })
+
+    const savedNote = await note.save()
+    response.status(201).send(savedNote)
   } catch (error) {
     next(error)
   }
 })
 
 /**
+ * TODO
  * @description Updates a note's content or importance
  * @route PUT /api/notes/{id}
  * @param {string} id.param.required - The note's id
@@ -124,6 +103,7 @@ notesRouter.put('/:id', (request, response, next) => {
 })
 
 /**
+ * TODO
  * @description Deletes a single note by id identifier
  * @route DELETE /api/notes/{id}
  * @param {string} id.path.required - The note's id
