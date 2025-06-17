@@ -1,15 +1,13 @@
 const express = require('express') // Express node-server application
+const connectDB = require('./db') // Database connection import (mongoos)
 const morgan = require('morgan') // Logger middleware
 const middlewares = require('./utils/middlewares') // Import middlewares
 
 const app = express();  // Creates the express application
-app.use(express.json()) // Built-in middleware to parse JSON bodies sent as part of requests
 
-/**
- * Tells express to serve static files from public directory at specific endpoints
- * - visiting http://localhost:PORT/ serves public/index.html
- */
-app.use(express.static('public'))
+connectDB() // connects to mongoDB database
+
+app.use(express.json()) // Built-in middleware to parse JSON bodies sent as part of requests
 
 /**
  * Logging middleware
