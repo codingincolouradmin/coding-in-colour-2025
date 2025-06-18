@@ -1,5 +1,8 @@
 const notesRouter = require('express').Router()
+const jwt = require('jsonwebtoken')
 const Note = require('../models/note')
+const User = require('../models/user')
+const { response } = require('express')
 
 /**
  * @description Returns all note resources
@@ -46,81 +49,63 @@ notesRouter.get('/:id', async (request, response, next) => {
  */
 notesRouter.post('/', async (request, response, next) => {
   try {
-    const { content, important } = request.body
+    const body = request.body
+    if (!body.content) {
+      return response.status(400).send({ error: 'missing contet' })
+    }
+
+    const decodedToken = jwt.verify(request.token, process.env.SECRET)
+    if (!decodedToken.id) {
+      return response.status(401).json({ error: 'token invalid' })
+    }
+
+    console.log('this is the decodedToken', decodedToken)
+
+    const user = await User.findById(decodedToken.id)
+    if (!user) {
+      return response.status(400).json({ error: 'userId missing or not valid' })
+    }
 
     const note = new Note({
-      content,
-      important: important || false
+      content: body.content,
+      important: body.important || false,
+      user: user._id
     })
 
     const savedNote = await note.save()
-    response.status(201).send(savedNote)
+    user.notes = user.notes.concat(savedNote._id)
+    await user.save()
+    response.status(201).json(savedNote)
   } catch (error) {
     next(error)
   }
 })
 
-/**
- * TODO
- * @description Updates a note's content or importance
- * @route PUT /api/notes/{id}
- * @param {string} id.param.required - The note's id
- * @param {string} req.body.content - Updated content
- * @param {boolean} req.body.importance - Updated importance
- * @returns {object} 201 - Updated Not object
- * @returns {object} 400 - Error if content missing
- * @returns {Error} 404 - Note not found
- */
-notesRouter.put('/:id', (request, response, next) => {
+notesRouter.put('/:id', async (request, response, next) => {
   try {
-    const id = Number(request.params.id)
-    const { content, important } = request.body
-
-    // If missing update data
-    if (content === undefined && important === undefined) {
-      return response.status(400).send({ error: 'content mising' })
-    }
-
-    // If note does not exist
-    const note = notes.find(n => n.id == id) 
-    if (!note) {
-      return response.status(404).send({ error: 'note not found' })
-    }
-
-    // Perform update
-    notes = notes
-    .map(note => note.id == id 
-      ? { ...note, content: content !== undefined ? content: note.content, important: important !== undefined ? important: note.important } 
-      : note 
-    )
-    const updatedNote = notes.find(n => n.id == id)
-    response.status(200).send(updatedNote)
+    /**
+     * - Verify if your token is correct (authentication)
+     * - Check if user exists
+     * - Check if the note exists  (request params id)
+     * - Check if the note's user id is the same as decoded token id
+     * - If yes, update content of note (Hint: update note fields and note.save())
+     * - If not, return error saying note does not belong to user 403
+     */
   } catch (error) {
     next(error)
   }
 })
 
-/**
- * TODO
- * @description Deletes a single note by id identifier
- * @route DELETE /api/notes/{id}
- * @param {string} id.path.required - The note's id
- * @returns {} 204 - Request performed
- * @returns {Error} 404 - Note not found
- */
-notesRouter.delete('/:id', (request, response, next) => {
+notesRouter.delete('/:id', async (request, response, next) => {
   try {
-    const id = Number(request.params.id)
-
-    // If note does not exist
-    const note = notes.find(n => n.id == id) 
-    if (!note) {
-      return response.status(404).send({ error: 'note not found' })
-    }
-
-    // Perform deletion
-    notes = notes.filter(note => note.id !== id)
-    response.status(204).end()
+    /**
+     * - Verify if your token is correct (authentication)
+     * - Check if user exists
+     * - Check if the note exists  (request params id)
+     * - Check if the note's user id is the same as decoded token id
+     * - If yes, update the user's notes (Hint: filter function), delete the note (Hint: findByIdAndDelete)
+     * - If not, return error saying note does not belong to user 403
+     */
   } catch (error) {
     next(error)
   }

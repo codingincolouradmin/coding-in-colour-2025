@@ -14,6 +14,7 @@ app.use(express.json()) // Built-in middleware to parse JSON bodies sent as part
  *  - We want this first, to log our request, and use next() to pass control onwards
  */
 app.use(morgan(':method :url :status :res[content-length] :date[iso] - :response-time ms'))
+app.use(middlewares.tokenExtractor)
 // app.use(middlewares.logger)
 
 /**
@@ -33,8 +34,8 @@ app.use('/api/login/', loginRouter)
  *  - We want this last, and we use next() to pass control of the middleware onwards
  *  - Control is relevant for how we've setup our error handling
  */
-app.use(middlewares.errorLogger)      // Receives error, logs it, passes to next error middleware
-app.use(middlewares.errorResponse)    // Receives error, returns response
+// app.use(middlewares.errorLogger)      // Receives error, logs it, passes to next error middleware
+// app.use(middlewares.errorResponse)    // Receives error, returns response
 app.use(middlewares.unknownEndpoint)  // Unknown endpoint handler
 
 module.exports = app

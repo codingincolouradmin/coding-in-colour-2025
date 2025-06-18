@@ -18,17 +18,17 @@ const tokenExtractor = (req, res, next) => {
   next()
 }
 
-const errorLogger = (error, req, res, next) => {
-  const currentTime = new Date();
-  date.format(currentTime, "YYYY/MM/DD HH:mm:ss")
-  console.log(`Error occured at ${currentTime}`)
-  next(error)
-}
+// const errorLogger = (error, req, res, next) => {
+//   const currentTime = new Date();
+//   date.format(currentTime, "YYYY/MM/DD HH:mm:ss")
+//   console.log(`Error occured at ${currentTime}`)
+//   next(error)
+// }
 
-const errorResponse = (error, req, res, next) => {
-  res.status(error.status).send(error.message)
-  // We simply return a response
-}
+// const errorResponse = (error, req, res, next) => {
+//   res.status(error.status).send(error.message)
+//   // We simply return a response
+// }
 
 const unknownEndpoint = (req, res, next) => {
   res.status(404).send("Unknown endpoint")
@@ -37,7 +37,7 @@ const unknownEndpoint = (req, res, next) => {
 module.exports = {
   logger,
   tokenExtractor,
-  errorLogger,
-  errorResponse,
+  // errorLogger,
+  // errorResponse,
   unknownEndpoint
 }
