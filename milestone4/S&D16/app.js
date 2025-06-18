@@ -21,8 +21,10 @@ app.use(morgan(':method :url :status :res[content-length] :date[iso] - :response
  * - Import all our endpoints
  */
 const notesRouter = require('./routes/notes')
+const usersRouter = require('./routes/users')
 
 app.use('/api/notes/', notesRouter)
+app.use('/api/users/', usersRouter)
 
 /**
  * Error Handling middleware
