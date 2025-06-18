@@ -6,13 +6,12 @@ const Note = require('../models/note')
  * @route GET /api/notes/
  * @returns {object} 200 - Notes collection
  */
-notesRouter.get('/', (request, response, next) => {
+notesRouter.get('/', async (request, response, next) => {
   try {
-    const notes = Note.find({})
-    response.status(200).json(notes)
-    response.status(200).send(notes)
-  } catch (error) {
-    next(error)
+    const notes = await Note.find({}).populate('user', { username: 1, name: 1 })
+    response.json(notes)
+  } catch (exception) {
+    next(exception)
   }
 })
 
@@ -24,17 +23,16 @@ notesRouter.get('/', (request, response, next) => {
  * @returns {object} 200 - Note object
  * @returns {Error} 404 - Note not found
  */
-notesRouter.get('/:id', (request, response, next) => {
+notesRouter.get('/:id', async (request, response, next) => {
   try {
-    const id = Number(request.params.id)
-    const note = notes.find(p => p.id == id)
+    const note = await Note.findById(request.params.id)
     if (note) {
-      response.status(200).json(note)
+      response.status(200).send(note)
     } else {
-      response.status(404).send({ error: "note not found" })
+      return response.status(404).json({ error: 'note not found' })
     }
-  } catch (error) {
-    next(error)
+  } catch (exception) {
+    next(exception)
   }
 })
 

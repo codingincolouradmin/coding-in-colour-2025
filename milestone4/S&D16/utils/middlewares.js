@@ -8,6 +8,16 @@ const logger = (req, res, next) => {
   next() // We pass control onwards, and since this logger comes first, the request then ideally gets caught at the appropriate endpoint
 }
 
+const tokenExtractor = (req, res, next) => {
+  const authorization = req.get('authorization')
+  if (authorization && authorization.startsWith('Bearer ')) {
+    req.token = authorization.replace('Bearer ', '')
+  } else {
+    req.token = null
+  }
+  next()
+}
+
 const errorLogger = (error, req, res, next) => {
   const currentTime = new Date();
   date.format(currentTime, "YYYY/MM/DD HH:mm:ss")
@@ -26,6 +36,7 @@ const unknownEndpoint = (req, res, next) => {
 
 module.exports = {
   logger,
+  tokenExtractor,
   errorLogger,
   errorResponse,
   unknownEndpoint
