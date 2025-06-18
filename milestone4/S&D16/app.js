@@ -22,9 +22,11 @@ app.use(morgan(':method :url :status :res[content-length] :date[iso] - :response
  */
 const notesRouter = require('./routes/notes')
 const usersRouter = require('./routes/users')
+const loginRouter = require('./routes/login')
 
 app.use('/api/notes/', notesRouter)
 app.use('/api/users/', usersRouter)
+app.use('/api/login/', loginRouter)
 
 /**
  * Error Handling middleware

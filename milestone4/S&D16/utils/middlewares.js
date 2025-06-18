@@ -15,7 +15,7 @@ const errorLogger = (error, req, res, next) => {
   next(error)
 }
 
-const errorResponse = (error, req, res) => {
+const errorResponse = (error, req, res, next) => {
   res.status(error.status).send(error.message)
   // We simply return a response
 }
