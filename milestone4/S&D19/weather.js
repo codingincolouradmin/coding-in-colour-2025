@@ -8,8 +8,9 @@ const getWeather = async (city) => {
     const response = await axios.get(url)
     console.log(response.data)
   } catch (error) {
-    console.error('Error fetching weather API data', error.message)
+    console.log(error.response.data)
+    // console.error('Error fetching weather API data', error.message)
   }
 }
 
-getWeather('London')
+getWeather('Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch')
